@@ -1,27 +1,23 @@
 import unittest
 
-"""
-Count names with more than seven letters
-"""
-def names(prenoms):
-    more_than_seven = 0
+from typing import List
+
+def count_names_with_more_than_seven_letters(prenoms: List[str]) -> int:
+    count = 0
     for prenom in prenoms:
         if len(prenom) > 7:
-            more_than_seven += 1
-            print("Prenom supérieur à 7 : " + prenom)
+            count += 1
+            print(f"Name with more than 7 letters: {prenom}")
         else:
-            print("Prenom inférieur ou égal à 7 : " + prenom)
-    return more_than_seven
+            print(f"Name with 7 letters or less: {prenom}")
+    return count
+
 
 class TestNamesMethod(unittest.TestCase):
      def test_names(self):
         prenoms = ["Guillaume", "Gilles", "Juliette", "Antoine", "François", "Cassandre"]
-        more_than_seven = names(prenoms=prenoms)
+        more_than_seven = count_names_with_more_than_seven_letters(prenoms=prenoms)
         self.assertEqual(more_than_seven, 4)
-
-prenoms = 'mesbahi'
-
-names(prenoms)
 
  
 if __name__ == '__main__':
